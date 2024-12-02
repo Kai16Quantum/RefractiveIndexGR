@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c6s5e1dpxfp0y"]
+
+[ext_resource type="FontFile" uid="uid://dqshcq6hide4w" path="res://Resources/Barlow/Barlow-Bold.ttf" id="1_jasfp"]
+[ext_resource type="FontFile" uid="uid://dwultlxq3a4tt" path="res://Resources/Barlow/FiraSans-Regular.ttf" id="2_t42up"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ni8ko"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2np47"]
+bg_color = Color(0.4655, 0.570475, 0.95, 0.32549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxp2s"]
+bg_color = Color(0.6, 0.6, 0.6, 0.160784)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4kpj"]
+
+[resource]
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.156863)
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_jasfp")
+Label/styles/normal = SubResource("StyleBoxEmpty_ni8ko")
+LineEdit/font_sizes/font_size = 128
+LineEdit/fonts/font = ExtResource("2_t42up")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_2np47")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_cxp2s")
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/normal_font = ExtResource("1_jasfp")
+TextEdit/font_sizes/font_size = 128
+TextEdit/fonts/font = ExtResource("2_t42up")
+TextEdit/styles/normal = SubResource("StyleBoxTexture_p4kpj")

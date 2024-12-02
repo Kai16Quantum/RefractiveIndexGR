@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://vfys8nsjv3ab"]
+
+[ext_resource type="Shader" path="res://backgroundshader.gdshader" id="1_icctk"]
+[ext_resource type="Script" path="res://scroll.gd" id="2_hgj45"]
+[ext_resource type="Theme" uid="uid://c6s5e1dpxfp0y" path="res://Theme.tres" id="3_fkcek"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0owwd"]
+shader = ExtResource("1_icctk")
+shader_parameter/iResolution = Vector3(1440, 2560, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wpjqb"]
+width = 1920
+height = 1080
+
+[sub_resource type="Gradient" id="Gradient_yhuok"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uh0p1"]
+gradient = SubResource("Gradient_yhuok")
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_0owwd")
+offset_left = -3700.0
+offset_top = -3212.0
+offset_right = 3463.0
+offset_bottom = 3225.0
+texture = SubResource("NoiseTexture2D_wpjqb")
+
+[node name="Grayscale" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.67451)
+offset_left = -3730.0
+offset_top = -3211.0
+offset_right = 3492.0
+offset_bottom = 3280.0
+texture = SubResource("GradientTexture1D_uh0p1")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -679.0
+offset_top = -1267.0
+offset_right = 679.0
+offset_bottom = 1267.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="ScrollContainer" parent="Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 203.0
+offset_top = 443.0
+offset_right = 208.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hgj45")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+unique_name_in_owner = true
+offset_left = -1134.0
+offset_top = -1220.0
+offset_right = 1148.0
+offset_bottom = -924.0
+theme = ExtResource("3_fkcek")
+placeholder_text = "Escribe \"n\" aquí"
+alignment = 1
+
+[connection signal="text_changed" from="LineEdit" to="Control/VBoxContainer" method="_on_line_edit_text_changed"]

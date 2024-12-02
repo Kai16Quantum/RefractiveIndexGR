@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://vef6exmab8ag"]
+
+[ext_resource type="Theme" uid="uid://c6s5e1dpxfp0y" path="res://Theme.tres" id="1_7q0pf"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+clip_contents = false
+custom_minimum_size = Vector2(10, 10)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_7q0pf")
+bbcode_enabled = true
+autowrap_mode = 0
+
+[node name="Index" type="Label" parent="."]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 24.0
+theme = ExtResource("1_7q0pf")
+text = "1.223"
+horizontal_alignment = 2
